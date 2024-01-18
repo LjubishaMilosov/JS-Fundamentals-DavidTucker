@@ -10,6 +10,9 @@ function getInput(promptText, validator, transformer){
     console.error(`Invalid Input`);
     process.exit(1);
   }
+  if(transformer){
+    return transformer(value);
+  }
   return value;
 }
 
@@ -73,7 +76,7 @@ function addEmployee(){
     let startDateMonth = getInput("Employee Start Date Month(1-12): ", isStartMonthValid);
     let startDateDay = getInput("Employee Star Date Day(1-31): ", isStartDayValid);
     employee.startDate = new Date(startDateYear, startDateMonth -1, startDateDay);
-    employee.isActive = getInput("Is employee active (yes or no): ",isBooleanInputValid);
+    employee.isActive = getInput("Is employee active (yes or no): ",isBooleanInputValid, i => (i === "yes"));
 
     // let firstName = prompt("First Name: ");
     // if (!firstName) {
