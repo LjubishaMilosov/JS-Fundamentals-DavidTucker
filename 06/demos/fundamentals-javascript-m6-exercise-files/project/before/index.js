@@ -98,6 +98,28 @@ function searchById(){
   }
 }
 
+//Search for employees by name
+
+function searchByName(){
+  const firstNameSearch = getInput("First Name: ").toLowerCase();
+  const lastNameSearch = getInput("Last Name: ").toLowerCase();
+  const results = employees.filter(e =>{
+    if(firstNameSearch && !e.firstName.toLowerCase().includes(firstNameSearch)){
+      return false;
+    }
+    if(lastNameSearch &&!e.lastName.toLowerCase().includes(lastNameSearch)){
+      return false;
+    }
+    return true;
+  });
+  results.forEach((e,idx) => {
+    console.log("");
+    console.log(`Search Result ${idx + 1} -------------------------------------------`);
+    logEmployee(e);
+  });
+
+}
+
 // Application Execution -------------------------------------------------------------------------------------------------------
 
 // Get the command the user wants to exexcute
@@ -116,6 +138,10 @@ switch (command) {
   case 'search-by-id':
     searchById();
     break;
+
+    case 'search-by-name':
+      searchByName();
+      break;
 
   default:
     console.log('Unsupported command. Exiting...');
