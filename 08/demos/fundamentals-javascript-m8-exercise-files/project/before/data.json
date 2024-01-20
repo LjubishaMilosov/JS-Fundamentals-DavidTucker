@@ -658,5 +658,14 @@
     "dateBirth": "1993-06-06",
     "startDate": "2012-01-04",
     "isActive": true
+  },
+  {
+    "id": 60,
+    "firstName": "Ljubisha",
+    "lastName": "Milosov",
+    "startDate": "2020-04-11T16:00:00.000Z",
+    "isActive": true,
+    "salaryUSD": "1000000",
+    "localCurrency": "GBP"
   }
 ]
